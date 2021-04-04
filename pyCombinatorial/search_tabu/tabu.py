@@ -256,11 +256,11 @@ def tabu_update(Xdata, stm_and_ltm, city_list, best_distance, tabu_list, tabu_te
             i = i + 1          
     if (diversify == True):
         stm_and_ltm, city_list = ltm_diversification(Xdata, stm_and_ltm, city_list) # diversification
-        city_list = local_search_4_opt_stochastic(Xdata, city_list) # diversification
+        # city_list = local_search_4_opt_stochastic(Xdata, city_list) # diversification
     return stm_and_ltm, city_list, tabu_list
 
 # Function: Tabu Search
-def tabu_search(Xdata, city_tour, iterations = 150, tabu_tenure = 20):
+def tabu_search(Xdata, city_tour, iterations = 150, tabu_tenure = 20, perc_diver = 0.2):
     count = 0
     best_solution = copy.deepcopy(city_tour)
     stm_and_ltm = build_stm_and_ltm(Xdata)
@@ -274,7 +274,7 @@ def tabu_search(Xdata, city_tour, iterations = 150, tabu_tenure = 20):
             no_improvement = 0
             diversify = False
         else:
-            if (no_improvement > 0 and no_improvement % int(iterations/5) == 0):
+            if (no_improvement > 0 and no_improvement % int(perc_diver*iterations) == 0):
                 diversify = True
                 no_improvement = 0
             else:
