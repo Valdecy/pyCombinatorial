@@ -154,10 +154,10 @@ def local_search_2_opt(Xdata, city_tour):
     return city_list
 
 # Function: Diversification
-def ltm_diversification (Xdata, stm_and_ltm, city_list):
+def ltm_diversification (Xdata, stm_and_ltm, city_list, p_dest):
     stm_and_ltm = stm_and_ltm[stm_and_ltm[:,3].argsort()]
     stm_and_ltm = stm_and_ltm[stm_and_ltm[:,4].argsort()]
-    lenght = random.sample((range(1, int(Xdata.shape[0]/3))), 1)[0]
+    lenght = random.sample((range(1, int(Xdata.shape[0]*p_dest))), 1)[0]
     for i in range(0, lenght):
         m = int(stm_and_ltm[i, 0] - 1)
         n = int(stm_and_ltm[i, 1] - 1)
@@ -197,7 +197,7 @@ def local_search_4_opt_stochastic(Xdata, city_tour):
     return best_route
 	
 # Function: Tabu Update
-def tabu_update(Xdata, stm_and_ltm, city_list, best_distance, tabu_list, tabu_tenure = 20, diversify = False):
+def tabu_update(Xdata, stm_and_ltm, city_list, best_distance, tabu_list, p_dest, tabu_tenure = 20,  diversify = False):
     m_list = []
     n_list = []
     city_list = local_search_2_opt(Xdata, city_list) # itensification
@@ -255,12 +255,12 @@ def tabu_update(Xdata, stm_and_ltm, city_list, best_distance, tabu_list, tabu_te
                 i = stm_and_ltm.shape[0]
             i = i + 1          
     if (diversify == True):
-        stm_and_ltm, city_list = ltm_diversification(Xdata, stm_and_ltm, city_list) # diversification
+        stm_and_ltm, city_list = ltm_diversification(Xdata, stm_and_ltm, city_list, p_dest) # diversification
         # city_list = local_search_4_opt_stochastic(Xdata, city_list) # diversification
     return stm_and_ltm, city_list, tabu_list
 
 # Function: Tabu Search
-def tabu_search(Xdata, city_tour, iterations = 150, tabu_tenure = 20, perc_diver = 0.2):
+def tabu_search(Xdata, city_tour, iterations = 150, tabu_tenure = 20, p_diver = 0.2, p_dest = 0.3):
     count = 0
     best_solution = copy.deepcopy(city_tour)
     stm_and_ltm = build_stm_and_ltm(Xdata)
@@ -268,19 +268,19 @@ def tabu_search(Xdata, city_tour, iterations = 150, tabu_tenure = 20, perc_diver
     diversify = False
     no_improvement = 0
     while (count < iterations):
-        stm_and_ltm, city_tour, tabu_list = tabu_update(Xdata, stm_and_ltm, city_tour, best_solution[1], tabu_list = tabu_list, tabu_tenure = tabu_tenure, diversify = diversify)
+        stm_and_ltm, city_tour, tabu_list = tabu_update(Xdata, stm_and_ltm, city_tour, best_solution[1], tabu_list = tabu_list, p_dest = p_dest, tabu_tenure = tabu_tenure, diversify = diversify)
         if (city_tour[1] < best_solution[1]):
             best_solution = copy.deepcopy(city_tour)
             no_improvement = 0
             diversify = False
         else:
-            if (no_improvement > 0 and no_improvement % int(perc_diver*iterations) == 0):
+            if (no_improvement > 0 and no_improvement % int(p_diver*iterations) == 0):
                 diversify = True
                 no_improvement = 0
             else:
                 diversify = False
             no_improvement = no_improvement + 1
         count = count + 1
-        print('Iteration =', count, '-> Distance =', best_solution[1])
+        print('Iteration =', count, '-> Current =', city_tour[1], '-> best =', best_solution[1])
     print('Best Solution =', best_solution)
     return best_solution
