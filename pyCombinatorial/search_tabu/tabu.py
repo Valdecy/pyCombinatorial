@@ -156,7 +156,7 @@ def local_search_2_opt(Xdata, city_tour):
 # Function: Diversification
 def ltm_diversification (Xdata, stm_and_ltm, city_list, p_dest):
     stm_and_ltm = stm_and_ltm[stm_and_ltm[:,3].argsort()]
-    stm_and_ltm = stm_and_ltm[stm_and_ltm[:,4].argsort()]
+    #stm_and_ltm = stm_and_ltm[stm_and_ltm[:,4].argsort()]
     lenght = random.sample((range(1, int(Xdata.shape[0]*p_dest))), 1)[0]
     for i in range(0, lenght):
         m = int(stm_and_ltm[i, 0] - 1)
