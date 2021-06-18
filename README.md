@@ -1,5 +1,5 @@
 # pyCombinatorial
-A python library to solve TSP problems using the following Metaheuristics: **2-opt**, **2-opt Stochastic**,**3-opt**, **4-opt**, **Ant Colony Optimization**, **Extremal Optimization**, **GRASP (Greedy Randomized Adaptive Search Procedure)**, **Guided Search**, **Iterated Search**, **Scatter Search**, **Stochastic Hill Climbing**, **Tabu Search**, **Variable Neighborhood Search**.
+A python library to solve TSP problems using the following Metaheuristics: **2-opt**; **2-opt Stochastic**; **3-opt**; **4-opt**; **Ant Colony Optimization**; **Extremal Optimization**; **GRASP (Greedy Randomized Adaptive Search Procedure)**; **Guided Search**; **Iterated Search**; **Scatter Search**; **Stochastic Hill Climbing**; **Tabu Search**; **Variable Neighborhood Search**.
 
 Try it in **Colab**: 
 
