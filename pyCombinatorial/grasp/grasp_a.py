@@ -136,12 +136,18 @@ def restricted_candidate_list(Xdata, greediness_value = 0.5):
             next_city = int(ranking(Xdata, city = sequence[-1] - 1)[count,1])
             while next_city in sequence:
                 count = np.clip(count+1,1,Xdata.shape[0]-1)
-                next_city = int(ranking(Xdata, city = sequence[-1] - 1)[count,1])
+                #next_city = int(ranking(Xdata, city = sequence[-1] - 1)[count,1])
+                a = list(range(1, Xdata.shape[0]+1))
+                b = [item for item in a if item not in sequence]
+                next_city = random.sample(b, 1)[0]
             sequence.append(next_city)
         elif (rand <= greediness_value and len(sequence) < Xdata.shape[0]):
             next_city = random.sample(list(range(1,Xdata.shape[0]+1)), 1)[0]
             while next_city in sequence:
-                next_city = int(random.sample(list(range(1,Xdata.shape[0]+1)), 1)[0])
+                #next_city = int(random.sample(list(range(1,Xdata.shape[0]+1)), 1)[0])
+                a = list(range(1, Xdata.shape[0]+1))
+                b = [item for item in a if item not in sequence]
+                next_city = random.sample(b, 1)[0]
             sequence.append(next_city)
     sequence.append(sequence[0])
     seed[0] = sequence
