@@ -24,7 +24,7 @@ plt.style.use('bmh')
 def distance_calc(Xdata, city_tour):
     distance = 0
     for k in range(0, len(city_tour[0])-1):
-        m = k + 1
+        m        = k + 1
         distance = distance + Xdata[city_tour[0][k]-1, city_tour[0][m]-1]            
     return distance
 
@@ -125,28 +125,26 @@ def ranking(Xdata, city = 0):
 
 # Function: RCL
 def restricted_candidate_list(Xdata, greediness_value = 0.5):
-    seed = [[],float("inf")]
+    seed     = [[],float("inf")]
     sequence = []
     sequence.append(random.sample(list(range(1,Xdata.shape[0]+1)), 1)[0])
-    count = 1
+    count     = 1
     for i in range(0, Xdata.shape[0]):
         count = 1
         rand = int.from_bytes(os.urandom(8), byteorder = "big") / ((1 << 64) - 1)
         if (rand > greediness_value and len(sequence) < Xdata.shape[0]):
             next_city = int(ranking(Xdata, city = sequence[-1] - 1)[count,1])
             while next_city in sequence:
-                count = np.clip(count+1,1,Xdata.shape[0]-1)
-                #next_city = int(ranking(Xdata, city = sequence[-1] - 1)[count,1])
-                a = list(range(1, Xdata.shape[0]+1))
-                b = [item for item in a if item not in sequence]
+                count     = np.clip(count+1,1,Xdata.shape[0]-1)
+                a         = list(range(1, Xdata.shape[0]+1))
+                b         = [item for item in a if item not in sequence]
                 next_city = random.sample(b, 1)[0]
             sequence.append(next_city)
         elif (rand <= greediness_value and len(sequence) < Xdata.shape[0]):
             next_city = random.sample(list(range(1,Xdata.shape[0]+1)), 1)[0]
             while next_city in sequence:
-                #next_city = int(random.sample(list(range(1,Xdata.shape[0]+1)), 1)[0])
-                a = list(range(1, Xdata.shape[0]+1))
-                b = [item for item in a if item not in sequence]
+                a         = list(range(1, Xdata.shape[0]+1))
+                b         = [item for item in a if item not in sequence]
                 next_city = random.sample(b, 1)[0]
             sequence.append(next_city)
     sequence.append(sequence[0])
@@ -156,14 +154,14 @@ def restricted_candidate_list(Xdata, greediness_value = 0.5):
 
 # Function: 2_opt
 def local_search_2_opt(Xdata, city_tour):
-    tour = copy.deepcopy(city_tour)
+    tour       = copy.deepcopy(city_tour)
     best_route = copy.deepcopy(tour)
-    seed = copy.deepcopy(tour)  
+    seed       = copy.deepcopy(tour)  
     for i in range(0, len(tour[0]) - 2):
         for j in range(i+1, len(tour[0]) - 1):
             best_route[0][i:j+1] = list(reversed(best_route[0][i:j+1]))
-            best_route[0][-1]  = best_route[0][0]
-            best_route[1] = distance_calc(Xdata, best_route)
+            best_route[0][-1]    = best_route[0][0]
+            best_route[1]        = distance_calc(Xdata, best_route)
             if (best_route[1] < tour[1]):
                 tour[1] = copy.deepcopy(best_route[1])
                 for n in range(0, len(tour[0])):
@@ -172,7 +170,7 @@ def local_search_2_opt(Xdata, city_tour):
     return tour
 
 def greedy_randomized_adaptive_search_procedure(Xdata, city_tour, iterations = 50, rcl = 25, greediness_value = 0.5):
-    count = 0
+    count         = 0
     best_solution = copy.deepcopy(city_tour)
     while (count < iterations):
         rcl_list = []
@@ -182,10 +180,10 @@ def greedy_randomized_adaptive_search_procedure(Xdata, city_tour, iterations = 5
         city_tour = local_search_2_opt(Xdata, city_tour = rcl_list[candidate])
         while (city_tour[0] != rcl_list[candidate][0]):
             rcl_list[candidate] = copy.deepcopy(city_tour)
-            city_tour = local_search_2_opt(Xdata, city_tour = rcl_list[candidate])
+            city_tour           = local_search_2_opt(Xdata, city_tour = rcl_list[candidate])
         if (city_tour[1] < best_solution[1]):
             best_solution = copy.deepcopy(city_tour) 
         count = count + 1
         print('Iteration =', count, '-> Distance =', best_solution[1])
-    print("Best Solution =", best_solution)
+    print('Best Solution =', best_solution)
     return best_solution
