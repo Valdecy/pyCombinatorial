@@ -15,7 +15,7 @@ setup(
     install_requires=[
         'numpy',
         'plotly',
-		'scipy'
+	'scipy'
     ],
     description='A Metaheuristics Library for TSP problems',
     long_description=long_description,
