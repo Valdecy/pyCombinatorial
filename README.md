@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A python library to solve TSP problems using the following Metaheuristics: **2-opt**; **3-opt**; **4-opt**; **2-opt Stochastic**; **3-opt Stochastic**; **4-opt Stochastic**; **5-opt Stochastic**; **Ant Colony Optimization**; **BRKGA** (Biased Random Key Genetic Algorithm); **Clarke & Wright**  (Savings Heuristic); **Convex Hull Algorithm**; **Extremal Optimization**; **Genetic Algorithm**; **GRASP** (Greedy Randomized Adaptive Search Procedure); **Guided Search**; **Iterated Search**; **Scatter Search**; **Stochastic Hill Climbing**; **Tabu Search**; **Variable Neighborhood Search**.
+A python library to solve TSP problems using the following Metaheuristics: **2-opt**; **3-opt**; **4-opt**; **2-opt Stochastic**; **3-opt Stochastic**; **4-opt Stochastic**; **5-opt Stochastic**; **Ant Colony Optimization**; **BRKGA** (Biased Random Key Genetic Algorithm); **Christofides Algorithm**; **Clarke & Wright**  (Savings Heuristic); **Convex Hull Algorithm**; **Extremal Optimization**; **Genetic Algorithm**; **GRASP** (Greedy Randomized Adaptive Search Procedure); **Guided Search**; **Iterated Search**; **Scatter Search**; **Stochastic Hill Climbing**; **Tabu Search**; **Variable Neighborhood Search**.
 
 ## Usage
 
@@ -57,6 +57,7 @@ print('Total Distance: ', round(distance, 2))
 - 5-opt Stochastic ([ Colab Demo ](https://colab.research.google.com/drive/13vS5MCeFqb3F4ntxrw3iCsMbJTfEVyeo?usp=sharing)) ( [ Paper ](https://isd.ktu.lt/it2011//material/Proceedings/1_AI_5.pdf))
 - Ant Colony Optimization ([ Colab Demo ](https://colab.research.google.com/drive/1O2qogrjE4mZUZX3nsSxw43crumlBnd-D?usp=sharing)) ( [ Paper ](https://doi.org/10.1109/4235.585892)) 
 - Biased Random Key Genetic Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1lwnpUBl1P1LIvzN1saLgEvnaKZRMWLHn?usp=sharing)) ( [ Paper ](https://doi.org/10.1007/s10732-010-9143-1))
+- Christofides Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1Wbm-YQ9TeH2OU-IjZzVdDkWGQILv4Pj_?usp=sharing)) ( [ Paper ](https://apps.dtic.mil/dtic/tr/fulltext/u2/a025602.pdf))
 - Clarke & Wright  (Savings Heuristic) ([ Colab Demo ](https://colab.research.google.com/drive/1XC2yoVe6wTsjt7u2fBaL3LcKUu42FG8r?usp=sharing)) ( [ Paper ](http://dx.doi.org/10.1287/opre.12.4.568))
 - Convex Hull Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1Wn2OWccZukOfMtJuGV9laklLTc8vjOFq?usp=sharing)) ( [ Paper ](https://doi.org/10.1109/TSMC.1974.4309370))
 - Extremal Optimization ([ Colab Demo ](https://colab.research.google.com/drive/1Y5YH0eYKjr1nj_IfhJXaILRDIXm-LWLs?usp=sharing)) ( [ Paper ](https://doi.org/10.1109/5992.881710))
