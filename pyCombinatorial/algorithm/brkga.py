@@ -84,7 +84,7 @@ def local_search_2_opt(distance_matrix, city_tour, recursive_seeding = -1, verbo
 
 # Function: Elite Local Search
 def elite_ls(population, distance_matrix):
-    print('Preparing Elite Individual(s)...')
+    print('Preparing Elite...')
     idx             = random.sample(range(0, len(population) - 1), 1)[0]
     r, d            = decoder(population[idx], distance_matrix, cost_only = False)
     seed            = [r, d]
