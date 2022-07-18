@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A python library to solve TSP problems using the following Metaheuristics: **2-opt**; **3-opt**; **4-opt**; **2-opt Stochastic**; **3-opt Stochastic**; **4-opt Stochastic**; **5-opt Stochastic**; **Ant Colony Optimization**; **BRKGA** (Biased Random Key Genetic Algorithm); **Christofides Algorithm**; **Clarke & Wright**  (Savings Heuristic); **Convex Hull Algorithm**; **Extremal Optimization**; **Genetic Algorithm**; **GRASP** (Greedy Randomized Adaptive Search Procedure); **Guided Search**; **Iterated Search**; **Scatter Search**; **Stochastic Hill Climbing**; **Tabu Search**; **Variable Neighborhood Search**.
+A python library to solve TSP problems using the following Metaheuristics: **2-opt**; **3-opt**; **4-opt**; **2-opt Stochastic**; **3-opt Stochastic**; **4-opt Stochastic**; **5-opt Stochastic**; **Ant Colony Optimization**; **BRKGA** (Biased Random Key Genetic Algorithm); **Christofides Algorithm**; **Clarke & Wright**  (Savings Heuristic); **Convex Hull Algorithm**; **Extremal Optimization**; **Genetic Algorithm**; **GRASP** (Greedy Randomized Adaptive Search Procedure); **Guided Search**; **Iterated Search**; **Scatter Search**; **Stochastic Hill Climbing**; **Tabu Search**; **Twice-Around the Tree Algorithm** (Two-Approximate Algorithm); **Variable Neighborhood Search**.
 
 ## Usage
 
@@ -68,4 +68,5 @@ print('Total Distance: ', round(distance, 2))
 - Scatter Search ([ Colab Demo ](https://colab.research.google.com/drive/115Ql6KegvOjlNUUfsbY4fA8Vab-db26N?usp=sharing)) ( [ Paper ](https://doi.org/10.1111/j.1540-5915.1977.tb01074.x)) 
 - Stochastic Hill Climbing ([ Colab Demo ](https://colab.research.google.com/drive/1_wP6vg4JoRHGItGxEtXcf9Y9OuuoDlDl?usp=sharing)) ( [ Paper ](http://aima.cs.berkeley.edu/)) 
 - Tabu Search ([ Colab Demo ](https://colab.research.google.com/drive/1SRwQrBaxkKk18SDvQPy--0yNRWdl6Y1G?usp=sharing)) ( [ Paper ](https://doi.org/10.1287/ijoc.1.3.190)) 
+- Twice-Around the Tree Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1tf5tc5DxvEUc89JaaFgzmK1TtD1e4fkc?usp=sharing)) ( [ Paper ](https://doi.org/10.1016/0196-6774(84)90029-4)) 
 - Variable Neighborhood Search ([ Colab Demo ](https://colab.research.google.com/drive/1yMWjYuurzpcijsCFDTA76fAwJmSaDkZq?usp=sharing)) ( [ Paper ](https://doi.org/10.1016/S0305-0548(97)00031-2)) 
