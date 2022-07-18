@@ -6,16 +6,17 @@ long_description = (this_directory / 'README.md').read_text()
 
 setup(
     name='pyCombinatorial',
-    version='1.2.5',
+    version='1.2.9',
     license='GNU',
     author='Valdecy Pereira',
     author_email='valdecy.pereira@gmail.com',
     url='https://github.com/Valdecy/pyCombinatorial',
     packages=find_packages(),
     install_requires=[
+        'networkx',
         'numpy',
         'plotly',
-	'scipy'
+		'scipy'
     ],
     description='A Metaheuristics Library for TSP problems',
     long_description=long_description,
