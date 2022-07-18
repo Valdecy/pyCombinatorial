@@ -85,7 +85,7 @@ def christofides_algorithm(distance_matrix):
     np.fill_diagonal(graph_G, 0)
     for i in range(0, graph_G.shape[0]):
         for j in range(0, graph_G.shape[1]):
-            if (graph_G[i, j] > 0 and i != j):
+            if (graph_G[i, j] > 0):
                 graph_G[i, j] = distance_matrix[i, j] 
     
     # Minimum-Weight Perfect Matching M
@@ -129,5 +129,5 @@ def christofides_algorithm(distance_matrix):
     route, distance = local_search_2_opt(distance_matrix, seed, recursive_seeding = -1, verbose = True)
     return route, distance
    
-
+############################################################################
 
