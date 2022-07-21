@@ -18,7 +18,7 @@ setup(
         'plotly',
 		'scipy'
     ],
-    description='A Metaheuristics Library for TSP problems',
+    description='A python library to solve TSP problems using Exact Algorithms, Heuristics and Metaheuristics',
     long_description=long_description,
     long_description_content_type='text/markdown',
 )
