@@ -93,24 +93,24 @@ def sweep(coordinates, distance_matrix, initial_location = -1, verbose = True):
     minimum  = float('+inf')
     distance = float('+inf')
     nodes    = np.array([i+1 for i in range(0, distance_matrix.shape[0])])
-
+    route    = []
     for i in range(0, distance_matrix.shape[0]): 
         if (initial_location != -1):
             i = initial_location-1
-        polar    = cartesian_polar(distance_matrix, coordinates, initial = i)
-        polar    = np.c_[polar, nodes]
-        polar    = polar[polar[:, 1].argsort()]
-        route    = [int(polar[i,-1]) for i in range(0, distance_matrix.shape[0])]
-        route    = route + [route[0]]
-        distance = distance_calc(distance_matrix, [route, 1])
-        seed     = [route, distance]
-        r, d     = local_search_2_opt(distance_matrix, seed, recursive_seeding = -1, verbose = False)
+        polar = cartesian_polar(distance_matrix, coordinates, initial = i)
+        polar = np.c_[polar, nodes]
+        polar = polar[polar[:, 1].argsort()]
+        temp  = [int(polar[i,-1]) for i in range(0, distance_matrix.shape[0])]
+        temp  = temp + [temp[0]]
+        dist  = distance_calc(distance_matrix, [temp, 1])
+        seed  = [temp, dist]
+        r, d  = local_search_2_opt(distance_matrix, seed, recursive_seeding = -1, verbose = False)
         if (d < minimum):
             minimum  = d
             distance = d
             route    = [item for item in r]
         if (verbose == True):
-            print('Iteration = ', i, 'Distance = ', round(minimum, 2))
+            print('Iteration = ', i, 'Distance = ', round(distance, 2))
         if (initial_location == -1):
             continue
         else: 
