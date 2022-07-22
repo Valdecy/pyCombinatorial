@@ -24,6 +24,10 @@ import pandas as pd
 from pyCombinatorial.algorithm import genetic_algorithm
 from pyCombinatorial.utils import graphs, util
 
+# Loading Coordinates # Berlin 52 (Minimum Distance = 7544.3659)
+coordinates = pd.read_csv('https://github.com/Valdecy/Datasets/raw/master/Combinatorial/TSP-02-Coordinates.txt', sep = '\t')
+coordinates = coordinates.values
+
 # Obtaining the Distance Matrix
 distance_matrix = util.build_distance_matrix(coordinates)
 
