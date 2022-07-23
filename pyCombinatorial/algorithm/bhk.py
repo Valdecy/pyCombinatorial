@@ -25,7 +25,7 @@ def bellman_held_karp_exact_algorithm(distance_matrix, verbose = True):
         for i in combinations:
             bits = 0
             for bit in i:
-                bits = bits + 2 ** bit
+                bits = bits + 2**bit
             for k in i:
                 prev = bits - 2**k
                 res = []
