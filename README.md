@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A library to solve the TSP (Travelling Salesman Problem) using Exact Algorithms, Heuristics and Metaheuristics : **2-opt**; **3-opt**; **4-opt**; **2-opt Stochastic**; **3-opt Stochastic**; **4-opt Stochastic**; **5-opt Stochastic**; **Ant Colony Optimization**; **Bellman-Held-Karp Exact Algorithm**; **BRKGA** (Biased Random Key Genetic Algorithm); **Brute Force** ; **Cheapest Insertion**; **Christofides Algorithm**; **Clarke & Wright**  (Savings Heuristic); **Convex Hull Algorithm**; **Extremal Optimization**; **Farthest Insertion**; **Genetic Algorithm**; **GRASP** (Greedy Randomized Adaptive Search Procedure); **Greedy Karp-Steele Patching**; **Guided Search**; **Iterated Search**; **Karp-Steele Patching**; **Multifragment Heuristic**; **Nearest Insertion**; **Nearest Neighbour**; **Random Insertion**; **Scatter Search**; **Simulated Annealing**; **SOM** (Self Organizing Maps); **Stochastic Hill Climbing**; **Sweep**; **Tabu Search**; **Truncated Branch & Bound**; **Twice-Around the Tree Algorithm** (Double Tree Algorithm); **Variable Neighborhood Search**.
+A library to solve the TSP (Travelling Salesman Problem) using Exact Algorithms, Heuristics and Metaheuristics : **2-opt**; **3-opt**; **4-opt**; **2-opt Stochastic**; **3-opt Stochastic**; **4-opt Stochastic**; **5-opt Stochastic**; **Ant Colony Optimization**; **Bellman-Held-Karp Exact Algorithm**; **BRKGA** (Biased Random Key Genetic Algorithm); **Brute Force** ; **Cheapest Insertion**; **Christofides Algorithm**; **Clarke & Wright**  (Savings Heuristic); **Convex Hull Algorithm**; **Extremal Optimization**; **Farthest Insertion**; **Genetic Algorithm**; **GRASP** (Greedy Randomized Adaptive Search Procedure); **Greedy Karp-Steele Patching**; **Guided Search**; **Iterated Search**; **Karp-Steele Patching**; **Multifragment Heuristic**; **Nearest Insertion**; **Nearest Neighbour**; **Random Insertion**; **Random Tour**; **Scatter Search**; **Simulated Annealing**; **SOM** (Self Organizing Maps); **Stochastic Hill Climbing**; **Sweep**; **Tabu Search**; **Truncated Branch & Bound**; **Twice-Around the Tree Algorithm** (Double Tree Algorithm); **Variable Neighborhood Search**.
 
 ## Usage
 
@@ -25,7 +25,7 @@ from pyCombinatorial.algorithm import genetic_algorithm
 from pyCombinatorial.utils import graphs, util
 
 # Loading Coordinates # Berlin 52 (Minimum Distance = 7544.3659)
-coordinates = pd.read_csv('https://bit.ly/3Oyn3hN', sep = '\t')
+coordinates = pd.read_csv('https://bit.ly/3Oyn3hN', sep = '\t') 
 coordinates = coordinates.values
 
 # Obtaining the Distance Matrix
@@ -79,6 +79,7 @@ print('Total Distance: ', round(distance, 2))
 - Nearest Insertion ([ Colab Demo ](https://colab.research.google.com/drive/1R4mz604EG-unKktu8ON_Hpoywi3OIRHK?usp=sharing)) ( [ Paper ](https://disco.ethz.ch/courses/fs16/podc/readingAssignment/1.pdf))
 - Nearest Neighbour ([ Colab Demo ](https://colab.research.google.com/drive/1aL1kYXgSjUJYPfYSMy_0SWq4hJ3nrueJ?usp=sharing)) ( [ Paper ](https://doi.org/10.1016/S0166-218X(01)00195-0))
 - Random Insertion ([ Colab Demo ](https://colab.research.google.com/drive/1RP_grqrTXyDkHOLB_L1H8TkvxdLli5hG?usp=sharing)) ( [ Paper ](https://disco.ethz.ch/courses/fs16/podc/readingAssignment/1.pdf))
+- Random Tour ([ Colab Demo ](https://colab.research.google.com/drive/1DPXMJXInkGKTyVFDAQ2bKXjglhy3DaCS?usp=sharing)) ( [ Paper ](https://doi.org/10.1023/A:1011263204536))
 - Scatter Search ([ Colab Demo ](https://colab.research.google.com/drive/115Ql6KegvOjlNUUfsbY4fA8Vab-db26N?usp=sharing)) ( [ Paper ](https://doi.org/10.1111/j.1540-5915.1977.tb01074.x)) 
 - Simulated Annealing ([ Colab Demo ](https://colab.research.google.com/drive/10Th0yLaAeSqp9FhYB0H00e4sXTbg7Jp2?usp=sharing)) ( [ Paper ](https://www.jstor.org/stable/1690046))
 - SOM (Self Organizing Maps) ([ Colab Demo ](https://colab.research.google.com/drive/1-ZwSFnXf1_kCeY_p3SC3N21T8QeSWsg6?usp=sharing)) ( [ Paper ](https://arxiv.org/pdf/2201.07208.pdf))
