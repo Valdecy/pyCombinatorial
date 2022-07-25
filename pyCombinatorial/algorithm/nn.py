@@ -68,6 +68,7 @@ def nearest_neighbour(distance_matrix, initial_location = -1, local_search = Tru
             i1 = initial_location-1
         temp       = []
         dist       = np.copy(distance_matrix)
+        dist       = dist.astype(float)
         np.fill_diagonal(dist, float('+inf'))
         idx        = dist[i1,:].argmin()
         dist[i1,:] = float('+inf')
