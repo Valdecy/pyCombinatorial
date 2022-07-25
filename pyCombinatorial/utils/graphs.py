@@ -73,13 +73,13 @@ def plot_tour(coordinates, city_tour = [], view = 'browser', size = 10):
                              name      = ''
                              )
         data.append(e_trace)
-    n_trace = go.Scatter(x         = coordinates[1:, -2],
-                         y         = coordinates[1:, -1],
+    n_trace = go.Scatter(x         = coordinates[0:, -2],
+                         y         = coordinates[0:, -1],
                          opacity   = 1,
                          mode      = 'markers+text',
                          marker    = dict(symbol = 'circle-dot', size = size, color = 'rgba(46, 138, 199, 1)'),
                          hoverinfo = 'text',
-                         hovertext = ids[1:],
+                         hovertext = ids[0:],
                          name      = ''
                          )
     data.append(n_trace)
