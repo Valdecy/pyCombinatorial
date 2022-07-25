@@ -52,7 +52,7 @@ def plot_tour(coordinates, city_tour = [], view = 'browser', size = 10):
     data = []
     Xe   = []
     Ye   = []
-    ids  = [ 'id: '+ str(i+1)+'<br>'+'x: '+str(round(xy[i,0], 2))+'<br>'+'y: '+str(round(xy[i,1], 2))  for i in range(0, xy.shape[0])] 
+    ids  = [ 'id: '+ str(i+1)+'<br>'+'x: '+str(round(coordinates[i,0], 2))+'<br>'+'y: '+str(round(coordinates[i,1], 2))  for i in range(0, coordinates.shape[0])] 
     if (len(city_tour) > 0):
         id0  = 'id: '+str(city_tour[0])+'<br>'+'x: '+str(round(xy[0,0], 2)) +'<br>'+'y: '+str(round(xy[0,1], 2))
     else:
