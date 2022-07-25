@@ -23,6 +23,7 @@ from .opt_2s import local_search_2_opt_stochastic
 from .opt_3s import local_search_3_opt_stochastic
 from .opt_4s import local_search_4_opt_stochastic
 from .opt_5s import local_search_5_opt_stochastic
+from .rt import random_tour
 from .s_gui import guided_search
 from .s_itr import iterated_search
 from .s_sct import scatter_search
