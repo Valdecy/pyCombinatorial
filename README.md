@@ -2,7 +2,7 @@
 
 ## Introduction
 
-A library to solve the TSP (Travelling Salesman Problem) using Exact Algorithms, Heuristics and Metaheuristics : **2-opt**; **3-opt**; **4-opt**; **2-opt Stochastic**; **3-opt Stochastic**; **4-opt Stochastic**; **5-opt Stochastic**; **Ant Colony Optimization**; **Bellman-Held-Karp Exact Algorithm**; **BRKGA** (Biased Random Key Genetic Algorithm); **Brute Force** ; **Cheapest Insertion**; **Christofides Algorithm**; **Clarke & Wright**  (Savings Heuristic); **Convex Hull Algorithm**; **Extremal Optimization**; **Farthest Insertion**; **Genetic Algorithm**; **GRASP** (Greedy Randomized Adaptive Search Procedure); **Greedy Karp-Steele Patching**; **Guided Search**; **Iterated Search**; **Karp-Steele Patching**; **Multifragment Heuristic**; **Nearest Insertion**; **Nearest Neighbour**; **Random Insertion**; **Random Tour**; **Scatter Search**; **Simulated Annealing**; **SOM** (Self Organizing Maps); **Stochastic Hill Climbing**; **Sweep**; **Tabu Search**; **Truncated Branch & Bound**; **Twice-Around the Tree Algorithm** (Double Tree Algorithm); **Variable Neighborhood Search**.
+A library to solve the TSP (Travelling Salesman Problem) using Exact Algorithms, Heuristics and Metaheuristics : **2-opt**; **3-opt**; **4-opt**; **2-opt Stochastic**; **3-opt Stochastic**; **4-opt Stochastic**; **5-opt Stochastic**; **Ant Colony Optimization**; **Bellman-Held-Karp Exact Algorithm**; **Branch & Bound**; **BRKGA** (Biased Random Key Genetic Algorithm); **Brute Force** ; **Cheapest Insertion**; **Christofides Algorithm**; **Clarke & Wright**  (Savings Heuristic); **Concave Hull Algorithm**; **Convex Hull Algorithm**; **Elastic Net**; **Extremal Optimization**; **Farthest Insertion**; **Genetic Algorithm**; **GRASP** (Greedy Randomized Adaptive Search Procedure); **Greedy Karp-Steele Patching**; **Guided Search**; **Hopfield Network**; **Iterated Search**; **Karp-Steele Patching**; **Multifragment Heuristic**; **Nearest Insertion**; **Nearest Neighbour**; **Random Insertion**; **Random Tour**; **Scatter Search**; **Simulated Annealing**; **SOM** (Self Organizing Maps); **Stochastic Hill Climbing**; **Sweep**; **Tabu Search**; **Truncated Branch & Bound**; **Twice-Around the Tree Algorithm** (Double Tree Algorithm); **Variable Neighborhood Search**.
 
 ## Usage
 
@@ -50,7 +50,7 @@ print('Total Distance: ', round(distance, 2))
 
 ```
 
-3. Try it in **Colab**
+3. Try it in **Colab** 
 
 - 2-opt ([ Colab Demo ](https://colab.research.google.com/drive/1SLkM8r_VdlFCpNpm-2yTfr_ynSC5WIX9?usp=sharing)) ( [ Paper ](https://www.jstor.org/stable/167074))     
 - 3-opt ([ Colab Demo ](https://colab.research.google.com/drive/1iAZLawLBZ-7yaPCyobMtel1SvBamxtjL?usp=sharing)) ( [ Paper ](https://isd.ktu.lt/it2011//material/Proceedings/1_AI_5.pdf)) 
@@ -61,18 +61,22 @@ print('Total Distance: ', round(distance, 2))
 - 5-opt Stochastic ([ Colab Demo ](https://colab.research.google.com/drive/13vS5MCeFqb3F4ntxrw3iCsMbJTfEVyeo?usp=sharing)) ( [ Paper ](https://isd.ktu.lt/it2011//material/Proceedings/1_AI_5.pdf))
 - Ant Colony Optimization ([ Colab Demo ](https://colab.research.google.com/drive/1O2qogrjE4mZUZX3nsSxw43crumlBnd-D?usp=sharing)) ( [ Paper ](https://doi.org/10.1109/4235.585892)) 
 - Bellman-Held-Karp Exact Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1HSnArk-v8PWY4dlCvT5zcSAnT1FJEDaf?usp=sharing)) ( [ Paper ](https://dl.acm.org/doi/10.1145/321105.321111))
+- Branch & Bound ([ Colab Demo ](https://colab.research.google.com/drive/1oDHrECSW3g4vBEsrO8T7qSHID4fxFiqs?usp=sharing)) ( [ Paper ](https://doi.org/10.1016/j.disopt.2016.01.005))
 - BRKGA (Biased Random Key Genetic Algorithm) ([ Colab Demo ](https://colab.research.google.com/drive/1lwnpUBl1P1LIvzN1saLgEvnaKZRMWLHn?usp=sharing)) ( [ Paper ](https://doi.org/10.1007/s10732-010-9143-1))
 - Brute Force ([ Colab Demo ](https://colab.research.google.com/drive/10vOkBz3Cv9UdHPlcBWkDmJO7EvDg96ar?usp=sharing)) ( [ Paper ](https://swarm.cs.pub.ro/~mbarbulescu/cripto/Understanding%20Cryptography%20by%20Christof%20Paar%20.pdf))
 - Cheapest Insertion ([ Colab Demo ](https://colab.research.google.com/drive/1QOg8FDvrFUgojwLXD2BBvEuB9Mu7q88a?usp=sharing)) ( [ Paper ](https://disco.ethz.ch/courses/fs16/podc/readingAssignment/1.pdf))
 - Christofides Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1Wbm-YQ9TeH2OU-IjZzVdDkWGQILv4Pj_?usp=sharing)) ( [ Paper ](https://apps.dtic.mil/dtic/tr/fulltext/u2/a025602.pdf))
 - Clarke & Wright  (Savings Heuristic) ([ Colab Demo ](https://colab.research.google.com/drive/1XC2yoVe6wTsjt7u2fBaL3LcKUu42FG8r?usp=sharing)) ( [ Paper ](http://dx.doi.org/10.1287/opre.12.4.568))
+- Concave Hull Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1P96DerRe7CLyC9dQNr96nEkNHnxpGYY4?usp=sharing)) ( [ Paper ](http://repositorium.sdum.uminho.pt/bitstream/1822/6429/1/ConcaveHull_ACM_MYS.pdf))
 - Convex Hull Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1Wn2OWccZukOfMtJuGV9laklLTc8vjOFq?usp=sharing)) ( [ Paper ](https://doi.org/10.1109/TSMC.1974.4309370))
+- Elastic Net ([ Colab Demo ](https://colab.research.google.com/drive/1F7IlkKdZ3_zQ_MkhknkIPHvE5RqJG7YC?usp=sharing)) ( [ Paper ](https://doi.org/10.1038/326689a0))
 - Extremal Optimization ([ Colab Demo ](https://colab.research.google.com/drive/1Y5YH0eYKjr1nj_IfhJXaILRDIXm-LWLs?usp=sharing)) ( [ Paper ](https://doi.org/10.1109/5992.881710))
 - Farthest Insertion ([ Colab Demo ](https://colab.research.google.com/drive/13pWiLL_dO9Y1lvQO0zD50MXk4mD0Tn1W?usp=sharing)) ( [ Paper ](https://disco.ethz.ch/courses/fs16/podc/readingAssignment/1.pdf))
 - Genetic Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1zO9rm-G6HOMeg1Q_ptMHJr48EpHcCAIS?usp=sharing)) ( [ Paper ](https://doi.org/10.1007/BF02125403))  
 - GRASP (Greedy Randomized Adaptive Search Procedure) ([ Colab Demo ](https://colab.research.google.com/drive/1OnRyCc6C_QL6wr6-l5RlQI4eGbMdwuhS?usp=sharing)) ( [ Paper ](https://doi.org/10.1007/BF01096763)) 
 - Greedy Karp-Steele Patching ([ Colab Demo ](https://colab.research.google.com/drive/1to3u45QWWQK8REj1_YiF5rUqUqNjB18q?usp=sharing)) ( [ Paper ](https://doi.org/10.1016/S0377-2217(99)00468-3))
 - Guided Search ([ Colab Demo ](https://colab.research.google.com/drive/1uT9mlDoo37Ni7hqziGNELEGQCGBKQ83o?usp=sharing)) ( [ Paper ](https://doi.org/10.1016/S0377-2217(98)00099-X)) 
+- Hopfield Network ([ Colab Demo ](https://colab.research.google.com/drive/1Io20FFsndsRT3Bc1nimLBcpH5WtEt7Pe?usp=sharing)) ( [ Paper ](https://doi.org/10.1515/dema-1996-0126)) 
 - Iterated Search ([ Colab Demo ](https://colab.research.google.com/drive/1U3sPpknulwsCUQq9mK7Ywfb8ap2GIXZv?usp=sharing)) ( [ Paper ](https://doi.org/10.1063/1.36219)) 
 - Karp-Steele Patching ([ Colab Demo ](https://colab.research.google.com/drive/12xLLDNIk6OOSNQXqYSYtdwhupZ9Kt5xb?usp=sharing)) ( [ Paper ](https://doi.org/10.1137/0208045))
 - Multifragment Heuristic ([ Colab Demo ](https://colab.research.google.com/drive/1YNHVjS6P35bAnqGZyP7ERNrTnG9tNuhF?usp=sharing)) ( [ Paper ](https://citeseerx.ist.psu.edu/viewdoc/download;jsessionid=08D176AEFA57EF1941645F2B31DF1686?doi=10.1.1.92.1635&rep=rep1&type=pdf))
@@ -89,3 +93,9 @@ print('Total Distance: ', round(distance, 2))
 - Truncated Branch & Bound ([ Colab Demo ](https://colab.research.google.com/drive/16m72PrBZN8mWMCer12dgsStcNGs4DVdQ?usp=sharing)) ( [ Paper ](https://research.ijcaonline.org/volume65/number5/pxc3885866.pdf)) 
 - Twice-Around the Tree Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1tf5tc5DxvEUc89JaaFgzmK1TtD1e4fkc?usp=sharing)) ( [ Paper ](https://doi.org/10.1016/0196-6774(84)90029-4)) 
 - Variable Neighborhood Search ([ Colab Demo ](https://colab.research.google.com/drive/1yMWjYuurzpcijsCFDTA76fAwJmSaDkZq?usp=sharing)) ( [ Paper ](https://doi.org/10.1016/S0305-0548(97)00031-2)) 
+
+# Single Objective Optimization
+For Single Objective Optimization try [pyMetaheuristic](https://github.com/Valdecy/pyMetaheuristic)
+
+# Multiobjective Optimization or Many Objectives Optimization
+For Multiobjective Optimization or Many Objectives Optimization try [pyMultiobjective](https://github.com/Valdecy/pyMultiobjective)
