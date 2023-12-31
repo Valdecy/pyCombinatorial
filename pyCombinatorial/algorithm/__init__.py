@@ -1,4 +1,5 @@
 from .aco import ant_colony_optimization 
+from .alns import adaptive_large_neighborhood_search
 from .bb import branch_and_bound
 from .bf import brute_force_analysis
 from .bhk import bellman_held_karp_exact_algorithm
@@ -18,6 +19,7 @@ from .ins_f import farthest_insertion
 from .ins_n import nearest_insertion
 from .ins_r import random_insertion
 from .ksp import karp_steele_patching
+from .lns import large_neighborhood_search
 from .mf import  multifragment_heuristic
 from .nn import nearest_neighbour
 from .opt_2 import local_search_2_opt
