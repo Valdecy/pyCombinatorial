@@ -106,7 +106,7 @@ def update_solution(distance_matrix, guess):
 # Function: Simulated Annealing
 def simulated_annealing_tsp(distance_matrix, initial_temperature = 1.0, temperature_iterations = 10, final_temperature = 0.0001, alpha = 0.9, verbose = True):
     guess       = seed_function(distance_matrix)
-    best        = np.copy(guess)
+    best        = copy.deepcopy(guess)
     temperature = float(initial_temperature)
     fx_best     = float('+inf')
     while (temperature > final_temperature): 
@@ -121,10 +121,10 @@ def simulated_annealing_tsp(distance_matrix, initial_temperature = 1.0, temperat
             r         = int.from_bytes(os.urandom(8), byteorder = 'big') / ((1 << 64) - 1)
             p         = np.exp(-delta/temperature)
             if (delta < 0 or r <= p):
-                guess = np.copy(new_guess)   
+                guess = copy.deepcopy(new_guess)   
             if (fx_new < fx_best):
                 fx_best = fx_new
-                best    = np.copy(guess)
+                best    = copy.deepcopy(guess)
         temperature = alpha*temperature  
     route, distance = guess
     return route, distance
