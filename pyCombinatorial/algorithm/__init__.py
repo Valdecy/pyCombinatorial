@@ -33,6 +33,9 @@ from .opt_3s import local_search_3_opt_stochastic
 from .opt_4s import local_search_4_opt_stochastic
 from .opt_5s import local_search_5_opt_stochastic
 from .rt import random_tour
+from .rl_ql import q_learning
+from .rl_double_ql import double_q_learning
+from .rl_sarsa import sarsa
 from .s_gui import guided_search
 from .s_itr import iterated_search
 from .s_sct import scatter_search
