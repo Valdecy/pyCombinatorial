@@ -9,7 +9,7 @@ A library to solve the TSP (Travelling Salesman Problem) using Exact Algorithms,
 1. Install
 
 ```bash
-pip install pyCombinatorial
+pip install pycombinatorial
 ```
 
 2. Import
