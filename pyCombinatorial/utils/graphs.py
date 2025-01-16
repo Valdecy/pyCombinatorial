@@ -10,6 +10,8 @@
 ############################################################################
 
 # Required Libraries
+import folium
+import folium.plugins
 import numpy  as np
 import plotly.io as pio
 import plotly.graph_objects as go
@@ -130,5 +132,33 @@ def plot_tour(coordinates, city_tour = [], view = 'browser', size = 10):
     fig.update_traces(textfont_size = 10, textfont_color = 'rgb(255, 255, 255)') 
     fig.show() 
     return
+
+# Function: Tour Plot - Lat Long
+def plot_tour_latlong (lat_long, solution):
+    m       = folium.Map(location = (lat_long.iloc[0][0], lat_long.iloc[0][1]), zoom_start = 14)
+    clients = folium.plugins.MarkerCluster(name = 'Clients').add_to(m)
+    depots  = folium.plugins.MarkerCluster(name = 'Depots').add_to(m)
+    for i in range(0, lat_long.shape[0]):
+        if (i < 1):
+            folium.Marker(location = [lat_long.iloc[i][0], lat_long.iloc[i][1]], popup = '<b>Client: </b>%s</br> <b>Lat Long: </b>%s</br>'%(int(i), '('+str(lat_long.iloc[i][0])+';'+str(lat_long.iloc[i][1])+')'), icon = folium.Icon(color = 'orange', icon = 'home')).add_to(depots)
+        else:
+            folium.Marker(location = [lat_long.iloc[i][0], lat_long.iloc[i][1]], popup = '<b>Client: </b>%s</br> <b>Lat Long: </b>%s</br>'%(int(i), '('+str(lat_long.iloc[i][0])+';'+str(lat_long.iloc[i][1])+')'), icon = folium.Icon(color = 'blue')).add_to(clients)
+    depot     = solution[0]-1
+    city_tour = [item - 1 for item in solution if item != solution[-1]]
+    for j in range(0, len(city_tour)):
+        ltlng = np.zeros((len(city_tour) + 2, 2))
+        for i in range(0, ltlng.shape[0]):
+            if (i == 0):
+                ltlng[ i, 0] = lat_long.iloc[depot, 0]
+                ltlng[ i, 1] = lat_long.iloc[depot, 1]
+                ltlng[-1, 0] = lat_long.iloc[depot, 0]
+                ltlng[-1, 1] = lat_long.iloc[depot, 1]
+            if (i > 0 and i < len(city_tour)+1):
+                ltlng[i, 0] = lat_long.iloc[city_tour[i-1], 0]
+                ltlng[i, 1] = lat_long.iloc[city_tour[i-1], 1]
+        for i in range(0, ltlng.shape[0]-1):
+          locations = [ (ltlng[i,0], ltlng[i,1]), (ltlng[i+1,0], ltlng[i+1,1])]
+          folium.PolyLine(locations , color = '#0a0a0a', weight = 1.5, opacity = 1).add_to(m)
+    return m
 
 ############################################################################
