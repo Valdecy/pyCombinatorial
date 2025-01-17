@@ -2,7 +2,9 @@
 
 ## Introduction
 
-A library to solve the TSP (Travelling Salesman Problem) using Exact Algorithms, Heuristics and Metaheuristics : **2-opt**; **2.5-opt**; **3-opt**; **4-opt**; **5-opt**; **2-opt Stochastic**; **2.5-opt Stochastic**; **3-opt Stochastic**; **4-opt Stochastic**; **5-opt Stochastic**; **Ant Colony Optimization**; **Adaptive Large Neighborhood Search**; **Bellman-Held-Karp Exact Algorithm**; **Branch & Bound**; **BRKGA** (Biased Random Key Genetic Algorithm); **Brute Force**; **Cheapest Insertion**; **Christofides Algorithm**; **Clarke & Wright**  (Savings Heuristic); **Concave Hull Algorithm**; **Convex Hull Algorithm**; **Elastic Net**; **Extremal Optimization**; **Farthest Insertion**; **Genetic Algorithm**; **GRASP** (Greedy Randomized Adaptive Search Procedure); **Greedy Karp-Steele Patching**; **Guided Search**; **Hopfield Network**; **Iterated Search**; **Karp-Steele Patching**;  **Large Neighborhood Search**; **Multifragment Heuristic**; **Nearest Insertion**; **Nearest Neighbour**; **Random Insertion**; **Random Tour**; **RL Q-Learning**; **RL Double Q-Learning**; **RL S.A.R.S.A** (State Action Reward State Action); **Scatter Search**; **Simulated Annealing**; **SOM** (Self Organizing Maps); **Space Filling Curve** (Hilbert); **Space Filling Curve** (Morton); **Space Filling Curve** (Sierpinski); **Stochastic Hill Climbing**; **Sweep**; **Tabu Search**; **Truncated Branch & Bound**; **Twice-Around the Tree Algorithm** (Double Tree Algorithm); **Variable Neighborhood Search**.
+**pyCombinatorial** is a Python-based library designed to tackle the classic Travelling Salesman Problem (TSP) through a diverse set of **Exact Algorithms**, **Heuristics**, **Metaheuristics** and **Reinforcement Learning**. It brings together both well-established and cutting-edge methodologies, offering end-users a flexible toolkit to generate high-quality solutions for TSP instances of various sizes and complexities.   
+
+Techniques: **2-opt**; **2.5-opt**; **3-opt**; **4-opt**; **5-opt**; **2-opt Stochastic**; **2.5-opt Stochastic**; **3-opt Stochastic**; **4-opt Stochastic**; **5-opt Stochastic**; **Ant Colony Optimization**; **Adaptive Large Neighborhood Search**; **Bellman-Held-Karp Exact Algorithm**; **Bitonic Tour**; **Branch & Bound**; **BRKGA** (Biased Random Key Genetic Algorithm); **Brute Force**; **Cheapest Insertion**; **Christofides Algorithm**; **Clarke & Wright**  (Savings Heuristic); **Concave Hull Algorithm**; **Convex Hull Algorithm**; **Elastic Net**; **Extremal Optimization**; **Farthest Insertion**; **Genetic Algorithm**; **GRASP** (Greedy Randomized Adaptive Search Procedure); **Greedy Karp-Steele Patching**; **Guided Search**; **Hopfield Network**; **Iterated Search**; **Karp-Steele Patching**;  **Large Neighborhood Search**; **Multifragment Heuristic**; **Nearest Insertion**; **Nearest Neighbour**; **Random Insertion**; **Random Tour**; **RL Q-Learning**; **RL Double Q-Learning**; **RL S.A.R.S.A** (State Action Reward State Action); **Scatter Search**; **Simulated Annealing**; **SOM** (Self Organizing Maps); **Space Filling Curve** (Hilbert); **Space Filling Curve** (Morton); **Space Filling Curve** (Sierpinski); **Stochastic Hill Climbing**; **Sweep**; **Tabu Search**; **Truncated Branch & Bound**; **Twice-Around the Tree Algorithm** (Double Tree Algorithm); **Variable Neighborhood Search**.
 
 ## Usage
 
@@ -52,7 +54,11 @@ print('Total Distance: ', round(distance, 2))
 
 3. Try it in **Colab** 
 
-- Using Lat Long ([ Colab Demo ](https://colab.research.google.com/drive/17jFw4z1R9gOoAfB-ZCZa6c-PukVKdrt3?usp=sharing))
+3.1 Lat Long Datasets 
+
+- Lat Long ([ Colab Demo ](https://colab.research.google.com/drive/17jFw4z1R9gOoAfB-ZCZa6c-PukVKdrt3?usp=sharing))
+
+3.2 Algorithms
 
 - 2-opt ([ Colab Demo ](https://colab.research.google.com/drive/1SLkM8r_VdlFCpNpm-2yTfr_ynSC5WIX9?usp=sharing)) ( [ Paper ](https://www.jstor.org/stable/167074)) 
 - 2.5-opt ([ Colab Demo ](https://colab.research.google.com/drive/17bJ-I26prnryAU8p-xf0l7R91cJzb85N?usp=sharing)) ( [ Paper ](https://doi.org/10.1007/s10955-007-9382-1))     
@@ -67,6 +73,7 @@ print('Total Distance: ', round(distance, 2))
 - Ant Colony Optimization ([ Colab Demo ](https://colab.research.google.com/drive/1O2qogrjE4mZUZX3nsSxw43crumlBnd-D?usp=sharing)) ( [ Paper ](https://doi.org/10.1109/4235.585892)) 
 - Adaptive Large Neighborhood Search ([ Colab Demo ](https://colab.research.google.com/drive/1vShK5fe2xRCpMkurgd4PzmstGtn6d_LQ?usp=sharing)) ( [ Paper ](https://www.jstor.org/stable/25769321)) 
 - Bellman-Held-Karp Exact Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1HSnArk-v8PWY4dlCvT5zcSAnT1FJEDaf?usp=sharing)) ( [ Paper ](https://dl.acm.org/doi/10.1145/321105.321111))
+- Bitonic Tour([ Colab Demo ](https://colab.research.google.com/drive/1AopZ7IBgC_2fhLE0E4yAgxofYc0wTnge?usp=sharing)) ( [ Paper ](https://doi.org/10.1007/978-3-030-63920-4_12))
 - Branch & Bound ([ Colab Demo ](https://colab.research.google.com/drive/1oDHrECSW3g4vBEsrO8T7qSHID4fxFiqs?usp=sharing)) ( [ Paper ](https://doi.org/10.1016/j.disopt.2016.01.005))
 - BRKGA (Biased Random Key Genetic Algorithm) ([ Colab Demo ](https://colab.research.google.com/drive/1lwnpUBl1P1LIvzN1saLgEvnaKZRMWLHn?usp=sharing)) ( [ Paper ](https://doi.org/10.1007/s10732-010-9143-1))
 - Brute Force ([ Colab Demo ](https://colab.research.google.com/drive/10vOkBz3Cv9UdHPlcBWkDmJO7EvDg96ar?usp=sharing)) ( [ Paper ](https://swarm.cs.pub.ro/~mbarbulescu/cripto/Understanding%20Cryptography%20by%20Christof%20Paar%20.pdf))
@@ -92,7 +99,7 @@ print('Total Distance: ', round(distance, 2))
 - Random Insertion ([ Colab Demo ](https://colab.research.google.com/drive/1RP_grqrTXyDkHOLB_L1H8TkvxdLli5hG?usp=sharing)) ( [ Paper ](https://disco.ethz.ch/courses/fs16/podc/readingAssignment/1.pdf))
 - Random Tour ([ Colab Demo ](https://colab.research.google.com/drive/1DPXMJXInkGKTyVFDAQ2bKXjglhy3DaCS?usp=sharing)) ( [ Paper ](https://doi.org/10.1023/A:1011263204536))
 - RL Q-Learning ([ Colab Demo ](https://colab.research.google.com/drive/1dnZhLAzQdz9kzxKrVcwMECWbyEKkZ7St?usp=sharing)) ( [ Paper ](https://doi.org/10.1049/tje2.12303))
-- RL Double Q-Learning([ Colab Demo ](https://colab.research.google.com/drive/1VTv8A6Ac-LvBxsereFyGRfkiLRbJI547?usp=sharing)) ( [ Paper ](https://doi.org/10.1049/tje2.12303))
+- RL Double Q-Learning ([ Colab Demo ](https://colab.research.google.com/drive/1VTv8A6Ac-LvBxsereFyGRfkiLRbJI547?usp=sharing)) ( [ Paper ](https://doi.org/10.1049/tje2.12303))
 - RL S.A.R.S.A ([ Colab Demo ](https://colab.research.google.com/drive/1q9hon3jFf8xVCw4idxhu7goLREKbQ6N3?usp=sharing)) ( [ Paper ](https://doi.org/10.1049/tje2.12303))
 - Scatter Search ([ Colab Demo ](https://colab.research.google.com/drive/115Ql6KegvOjlNUUfsbY4fA8Vab-db26N?usp=sharing)) ( [ Paper ](https://doi.org/10.1111/j.1540-5915.1977.tb01074.x)) 
 - Simulated Annealing ([ Colab Demo ](https://colab.research.google.com/drive/10Th0yLaAeSqp9FhYB0H00e4sXTbg7Jp2?usp=sharing)) ( [ Paper ](https://www.jstor.org/stable/1690046))
