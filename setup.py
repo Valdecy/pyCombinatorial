@@ -6,7 +6,7 @@ long_description = (this_directory / 'README.md').read_text()
 
 setup(
     name='pycombinatorial',
-    version='1.8.2',
+    version='1.9.0',
     license='GNU',
     author='Valdecy Pereira',
     author_email='valdecy.pereira@gmail.com',
@@ -17,7 +17,7 @@ setup(
         'networkx',
         'numpy',
         'plotly',
-		'scipy'
+	'scipy'
     ],
     description='A library to solve TSP (Travelling Salesman Problem) using Exact Algorithms, Heuristics and Metaheuristics',
     long_description=long_description,
