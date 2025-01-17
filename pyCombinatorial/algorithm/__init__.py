@@ -4,6 +4,7 @@ from .bb import branch_and_bound
 from .bf import brute_force_analysis
 from .bhk import bellman_held_karp_exact_algorithm
 from .brkga import biased_random_key_genetic_algorithm
+from .bt import bitonic_tour
 from .christofides import christofides_algorithm
 from .conc_hull import concave_hull_algorithm
 from .conv_hull import convex_hull_algorithm
@@ -32,10 +33,10 @@ from .opt_2_5s import local_search_2h_opt_stochastic
 from .opt_3s import local_search_3_opt_stochastic
 from .opt_4s import local_search_4_opt_stochastic
 from .opt_5s import local_search_5_opt_stochastic
-from .rt import random_tour
-from .rl_ql import q_learning
 from .rl_double_ql import double_q_learning
+from .rl_ql import q_learning
 from .rl_sarsa import sarsa
+from .rt import random_tour
 from .s_gui import guided_search
 from .s_itr import iterated_search
 from .s_sct import scatter_search
