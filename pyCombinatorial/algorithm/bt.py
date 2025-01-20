@@ -92,7 +92,7 @@ def bitonic_tour(coordinates, distance_matrix, local_search = True, verbose = Tr
     i, j          = 0, n - 1
     while (True):
         if (verbose == True):
-            print('Node:', j+1)
+            print('Node = ', j+1)
         pval = parent[i][j]
         if (pval is None):
             route_indices.append(i)
@@ -100,10 +100,11 @@ def bitonic_tour(coordinates, distance_matrix, local_search = True, verbose = Tr
         route_indices.append(pval[1])
         i, j = pval
     route_indices.reverse()
-    route = sorted_indices[route_indices].tolist()
-    route = [item + 1 for item in route]
+    route    = sorted_indices[route_indices].tolist()
+    route    = [item + 1 for item in route]
     route.append(route[0])
-    seed  = [route, distance]
+    distance = distance_calc(distance_matrix, [route, 1])
+    seed     = [route, distance]
     if (local_search == True):
         route, distance = local_search_2_opt(distance_matrix, seed, recursive_seeding = -1, verbose = verbose)
     return route, distance
