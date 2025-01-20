@@ -134,7 +134,7 @@ def plot_tour(coordinates, city_tour = [], view = 'browser', size = 10):
     return
 
 # Function: Tour Plot - Lat Long
-def plot_tour_latlong (lat_long, solution):
+def plot_tour_latlong(lat_long, solution):
     m       = folium.Map(location = (lat_long.iloc[0][0], lat_long.iloc[0][1]), zoom_start = 14)
     clients = folium.plugins.MarkerCluster(name = 'Clients').add_to(m)
     depots  = folium.plugins.MarkerCluster(name = 'Depots').add_to(m)
