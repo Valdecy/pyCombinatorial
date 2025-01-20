@@ -114,7 +114,7 @@ print('Total Distance: ', round(distance, 2))
 - Truncated Branch & Bound ([ Colab Demo ](https://colab.research.google.com/drive/16m72PrBZN8mWMCer12dgsStcNGs4DVdQ?usp=sharing)) ( [ Paper ](https://research.ijcaonline.org/volume65/number5/pxc3885866.pdf)) 
 - Twice-Around the Tree Algorithm ([ Colab Demo ](https://colab.research.google.com/drive/1tf5tc5DxvEUc89JaaFgzmK1TtD1e4fkc?usp=sharing)) ( [ Paper ](https://doi.org/10.1016/0196-6774(84)90029-4)) 
 - Variable Neighborhood Search ([ Colab Demo ](https://colab.research.google.com/drive/1yMWjYuurzpcijsCFDTA76fAwJmSaDkZq?usp=sharing)) ( [ Paper ](https://doi.org/10.1016/S0305-0548(97)00031-2)) 
-- Zero Suffix Method ([ Colab Demo ]()) ( [ Paper ](https://www.m-hikari.com/ijcms-2011/21-24-2011/sudhakarIJCMS21-24-2011.pdf)) 
+- Zero Suffix Method ([ Colab Demo ](https://colab.research.google.com/drive/1IXiZ8eQThElMFK-ATD1GoUyKC02LI3ij?usp=sharing)) ( [ Paper ](https://www.m-hikari.com/ijcms-2011/21-24-2011/sudhakarIJCMS21-24-2011.pdf)) 
 
 # Single Objective Optimization
 For Single Objective Optimization try [pyMetaheuristic](https://github.com/Valdecy/pyMetaheuristic)
