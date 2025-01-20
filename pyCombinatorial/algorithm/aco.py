@@ -15,7 +15,7 @@ import numpy as np
 
 ############################################################################
 
-# Helper: Calculate Path Distance
+# Function: Calculate Path Distance
 def calculate_distance(distance_matrix, city_list):
     path_distance = 0
     for i in range(0, len(city_list) - 1):
@@ -23,8 +23,8 @@ def calculate_distance(distance_matrix, city_list):
     path_distance = path_distance + distance_matrix[city_list[-1]-1, city_list[0]-1]
     return path_distance
 
-# Helper: Perform Local Search (Optional)
-def local_search_2_opt(distance_matrix, city_tour, recursive_seeding = -1):
+# Function: Perform Local Search
+def local_search_2_opt(distance_matrix, city_tour):
     city_list, best_path_distance = city_tour[0], city_tour[1]
     improved                      = True
     while (improved == True):
@@ -42,13 +42,13 @@ def local_search_2_opt(distance_matrix, city_tour, recursive_seeding = -1):
 
 ############################################################################
 
-# Helper: Calculate Attractiveness
+# Function: Calculate Attractiveness
 def attractiveness(distance_matrix):
     h = 1 / (distance_matrix + 1e-10) 
     np.fill_diagonal(h, 0)
     return h
 
-# Helper: Update Pheromone Matrix
+# Function: Update Pheromone Matrix
 def update_thau(distance_matrix, thau, city_list):
     path_distance = 0
     for i in range(len(city_list) - 1):
@@ -61,7 +61,7 @@ def update_thau(distance_matrix, thau, city_list):
     thau[city_list[ 0]-1, city_list[-1]-1] = thau[city_list[ 0]-1, city_list[-1]-1] + 1 / path_distance
     return thau
 
-# Helper: Generate Ant Paths
+# Function: Generate Ant Paths
 def ants_path(distance_matrix, h, thau, alpha, beta, full_list, ants, local_search):
     best_path_distance = float('inf')
     best_city_list     = None
