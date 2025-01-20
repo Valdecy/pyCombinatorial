@@ -52,3 +52,4 @@ from .spfc_s       import space_filling_curve_s
 from .swp          import sweep
 from .tat          import tat_algorithm
 from .tbb          import truncated_branch_and_bound
+from .zs           import zero_suffix_method
