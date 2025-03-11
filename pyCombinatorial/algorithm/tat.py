@@ -74,7 +74,7 @@ def tat_algorithm(distance_matrix, local_search = True, verbose = True):
                 graph_H[i,j] = 1 #graph_T[i,j]
                 graph_H[j,i] = 1 #graph_T[i,j]    
     # Eulerian Path
-    H = nx.from_numpy_matrix(graph_H)
+    H = nx.from_numpy_array(graph_H)
     if (nx.is_eulerian(H)):
         euler = list(nx.eulerian_path(H))
     else:
