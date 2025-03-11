@@ -65,7 +65,7 @@ def local_search_2_opt(distance_matrix, city_tour, recursive_seeding = -1, verbo
 def christofides_algorithm(distance_matrix, local_search = True, verbose = True):
     # Minimum Spanning Tree T
     graph_T = minimum_spanning_tree(distance_matrix)
-    graph_T = graph_T.toarray().astype(int)
+    graph_T = graph_T.toarray().astype(float)
     # Induced Subgraph G
     graph_O = np.array(graph_T, copy = True) 
     count_r = np.count_nonzero(graph_T  > 0, axis = 1)
