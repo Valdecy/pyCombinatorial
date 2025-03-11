@@ -88,7 +88,7 @@ def christofides_algorithm(distance_matrix, local_search = True, verbose = True)
     # Minimum-Weight Perfect Matching M
     graph_G_inv = np.array(graph_G, copy = True) 
     graph_G_inv = -graph_G_inv
-    min_w_pm    = nx.algorithms.matching.max_weight_matching(nx.from_numpy_matrix(graph_G_inv), maxcardinality = True)
+    min_w_pm    = nx.algorithms.matching.max_weight_matching(nx.from_numpy_array(graph_G_inv), maxcardinality = True)
     graph_M     = np.zeros((graph_G.shape)) 
     for item in min_w_pm:
         i, j          = item
@@ -102,7 +102,7 @@ def christofides_algorithm(distance_matrix, local_search = True, verbose = True)
             elif (graph_M[i, j] > 0 and graph_T[i, j] > 0):
                 graph_H[j, i] = 1 #distance_matrix[i, j]    
     # Eulerian Path
-    H = nx.from_numpy_matrix(graph_H)
+    H = nx.from_numpy_array(graph_H)
     if (nx.is_eulerian(H)):
         euler = list(nx.eulerian_path(H))
     else:
