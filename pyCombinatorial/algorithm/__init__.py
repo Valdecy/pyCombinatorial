@@ -38,6 +38,7 @@ from .rl_double_ql import double_q_learning
 from .rl_ql        import q_learning
 from .rl_sarsa     import sarsa
 from .rt           import random_tour
+from .rr           import ruin_and_recreate
 from .s_gui        import guided_search
 from .s_itr        import iterated_search
 from .s_sct        import scatter_search
