@@ -35,8 +35,9 @@ def build_coordinates(distance_matrix):
 def plot_tour(coordinates, city_tour = [], view = 'browser', size = 10):
     if (coordinates.shape[0] == coordinates.shape[1]):
       coordinates = build_coordinates(coordinates)
-    if (view == 'browser' ):
-        pio.renderers.default = 'browser'
+    
+    pio.renderers.default = view
+ 
     if (len(city_tour) > 0):
         xy = np.zeros((len(city_tour), 2))
         for i in range(0, len(city_tour)):
@@ -162,3 +163,4 @@ def plot_tour_latlong(lat_long, solution):
     return m
 
 ############################################################################
+
