@@ -29,6 +29,7 @@ from .opt_2_5      import local_search_2h_opt
 from .opt_3        import local_search_3_opt
 from .opt_4        import local_search_4_opt
 from .opt_5        import local_search_5_opt
+from .opt_or       import local_search_or_opt
 from .opt_2s       import local_search_2_opt_stochastic
 from .opt_2_5s     import local_search_2h_opt_stochastic
 from .opt_3s       import local_search_3_opt_stochastic
@@ -37,8 +38,8 @@ from .opt_5s       import local_search_5_opt_stochastic
 from .rl_double_ql import double_q_learning
 from .rl_ql        import q_learning
 from .rl_sarsa     import sarsa
-from .rt           import random_tour
 from .rr           import ruin_and_recreate
+from .rt           import random_tour
 from .s_gui        import guided_search
 from .s_itr        import iterated_search
 from .s_sct        import scatter_search
