@@ -62,41 +62,52 @@ def update_thau(distance_matrix, thau, city_list):
     return thau
 
 # Function: Generate Ant Paths
-def ants_path(distance_matrix, h, thau, alpha, beta, full_list, ants, local_search):
-    best_path_distance = float('inf')
+def ants_path(distance_matrix, h, thau, alpha, beta, full_list, ants, local_search, deposit_mode = 'all'):
+    best_path_distance = float("inf")
     best_city_list     = None
+    all_tours          = []
     for _ in range(0, ants):
         city_list = [np.random.choice(full_list)]
-        while (len(city_list) < len(full_list)):
-            current_city  = city_list[-1]
-            probabilities = []
-            for next_city in full_list:
-                if (next_city not in city_list):
-                    p = (thau[current_city-1, next_city-1] ** alpha) * (h[current_city-1, next_city-1] ** beta)
-                    probabilities.append(p)
-                else:
-                    probabilities.append(0)
-            probabilities = np.array(probabilities) / np.sum(probabilities)
-            next_city     = np.random.choice(full_list, p = probabilities)
+        while len(city_list) < len(full_list):
+            current_city = city_list[-1]
+            candidates   = [c for c in full_list if c not in city_list]
+            weights      = []
+            for nxt in candidates:
+                tau = thau[current_city - 1, nxt - 1]
+                eta = h[current_city - 1, nxt - 1]
+                w   = (tau ** alpha) * (eta ** beta)
+                weights.append(w)
+            weights = np.array(weights, dtype = float)
+            s       = weights.sum()
+            if s <= 0 or not np.isfinite(s):
+                next_city = np.random.choice(candidates)
+            else:
+                probs     = weights / s
+                next_city = np.random.choice(candidates, p = probs)
             city_list.append(next_city)
         path_distance = calculate_distance(distance_matrix, city_list)
-        if (path_distance < best_path_distance):
-            best_city_list     = copy.deepcopy(city_list)
+        if path_distance < best_path_distance:
             best_path_distance = path_distance
-            
-    if (local_search == True):
+            best_city_list     = copy.deepcopy(city_list)
+        if deposit_mode == "all":
+            all_tours.append((city_list, path_distance))
+    if local_search:
         best_city_list, best_path_distance = local_search_2_opt(distance_matrix, city_tour = [best_city_list, best_path_distance])
-    thau = update_thau(distance_matrix, thau, city_list = best_city_list)
+    if deposit_mode == "all":
+        for tour, dist in all_tours:
+            thau = update_thau(distance_matrix, thau, city_list = tour)
+    else:
+        thau = update_thau(distance_matrix, thau, city_list = best_city_list)
     return best_city_list, best_path_distance, thau
 
 ############################################################################
 
 # ACO Function
-def ant_colony_optimization(distance_matrix, ants = 5, iterations = 50, alpha = 1, beta = 2, decay = 0.05, local_search = True, verbose = True):
+def ant_colony_optimization(distance_matrix, ants = 15, iterations = 100, alpha = 1, beta = 2, decay = 0.05, local_search = True, verbose = True):
     count      = 0
     best_route = []
     full_list  = list(range(1, distance_matrix.shape[0] + 1))
-    distance   = np.sum(distance_matrix.sum())
+    distance   = float('inf')
     h          = attractiveness(distance_matrix)
     thau       = np.ones((distance_matrix.shape[0], distance_matrix.shape[0]))
     while (count <= iterations):
