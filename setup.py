@@ -6,7 +6,7 @@ long_description = (this_directory / 'README.md').read_text()
 
 setup(
     name='pycombinatorial',
-    version='2.1.1',
+    version='2.1.4',
     license='GNU',
     author='Valdecy Pereira',
     author_email='valdecy.pereira@gmail.com',
