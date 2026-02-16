@@ -80,10 +80,12 @@ def local_search_2_opt(distance_matrix, city_tour, recursive_seeding = -1, verbo
 # Function: Removal
 def removal_operators():
     def random_removal(city_tour, num_removals):
-        removed = set()
-        while (len(removed) < num_removals):
-            removed.add(random.choice(city_tour[1:]))
-        return list(removed)
+        available = city_tour[1:]
+        if (len(available) == 0):
+            return []
+        k = int(num_removals)
+        k = max(1, min(k, len(available)))
+        return random.sample(available, k)
     return [random_removal]
 
 # Function: Insertion
@@ -104,7 +106,7 @@ def insertion_operators():
 ############################################################################
 
 # Function: Adaptive Large Neighborhood Search
-def adaptive_large_neighborhood_search(distance_matrix, iterations = 100, removal_fraction = 0.2, rho = 0.1, local_search = True, verbose = True):
+def adaptive_large_neighborhood_search(distance_matrix, iterations = 100, removal_fraction = 0.2, rho = 0.1, local_search = True, verbose = True, sa = True, t0 = None, cooling = 0.995):
     initial_tour       = list(range(0, distance_matrix.shape[0]))
     random.shuffle(initial_tour)
     route              = initial_tour.copy()
@@ -113,20 +115,29 @@ def adaptive_large_neighborhood_search(distance_matrix, iterations = 100, remova
     insertion_ops      = insertion_operators()
     weights_removal    = [1.0] * len(removal_ops)
     weights_insertion  = [1.0] * len(insertion_ops)
+    rho                = max(0.0, min(float(rho), 0.99))
+    temp               = float(distance) if (t0 is None) else float(t0)
+    temp               = max(temp, 1e-12)
     count              = 0
-    while (count <= iterations):
+    while (count < iterations):
         if (verbose == True and count > 0):
             print('Iteration = ', count, 'Distance = ', round(distance, 2))     
         city_tour     = route.copy()
         removal_op    = random.choices(removal_ops,   weights = weights_removal)[0]
         insertion_op  = random.choices(insertion_ops, weights = weights_insertion)[0]
         num_removals  = int(removal_fraction * distance_matrix.shape[0])
+        num_removals  = max(1, num_removals)
+        num_removals  = min(num_removals, max(1, len(city_tour) - 1))
         removed_nodes = removal_op(city_tour, num_removals)
         for node in removed_nodes:
             city_tour.remove(node)
         new_tour          = insertion_op(removed_nodes, city_tour, distance_matrix)
         new_tour_distance = distance_point(distance_matrix, new_tour)
-        if (new_tour_distance < distance):
+        delta  = new_tour_distance - distance
+        accept = (delta < 0)
+        if (sa == True and accept == False):
+            accept = (random.random() < np.exp(-delta / temp))
+        if (accept == True):
             route                                                = new_tour
             distance                                             = new_tour_distance
             weights_removal[removal_ops.index(removal_op)]       = weights_removal[removal_ops.index(removal_op)]       * (1 + rho)
@@ -138,6 +149,8 @@ def adaptive_large_neighborhood_search(distance_matrix, iterations = 100, remova
         total_weight_insertion = sum(weights_insertion)
         weights_removal        = [w / total_weight_removal   for w in weights_removal]
         weights_insertion      = [w / total_weight_insertion for w in weights_insertion]
+        if (sa == True):
+            temp = max(temp * cooling, 1e-12)
         count                  = count + 1
     route = route + [route[0]]
     route = [item + 1 for item in route]
