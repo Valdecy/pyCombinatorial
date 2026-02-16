@@ -51,6 +51,7 @@ from .som          import self_organizing_maps
 from .spfc_h       import space_filling_curve_h
 from .spfc_m       import space_filling_curve_m
 from .spfc_s       import space_filling_curve_s
+from .ssi          import spectral_seriation_initializer
 from .swp          import sweep
 from .tat          import tat_algorithm
 from .tbb          import truncated_branch_and_bound
