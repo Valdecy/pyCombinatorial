@@ -61,7 +61,7 @@ def two_opt(tour, D, max_passes):
 
 # Function: KNN
 def knn_indices(D, k):
-    return np.argsort(D, axis=1)[:, 1 : k + 1]
+    return np.argsort(D, axis = 1)[:, 1 : k + 1]
 
 # Function: Affinity
 def build_affinity_sparse(D, k, sigma_mode, sigma_fixed):
@@ -139,5 +139,6 @@ def spectral_seriation_initializer(D, k = 12, iterations = 800, sigma_noise = 0.
     best_tour = [item + 1 for item in best_tour]
     best_tour.append(best_tour[0])
     return best_tour, int(best_L)
+
 
 ############################################################################
