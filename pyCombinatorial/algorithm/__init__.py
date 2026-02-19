@@ -39,6 +39,7 @@ from .rl_double_ql import double_q_learning
 from .rl_ql        import q_learning
 from .rl_sarsa     import sarsa
 from .rr           import ruin_and_recreate
+from .rss          import randomized_spectral_seriation
 from .rt           import random_tour
 from .s_gui        import guided_search
 from .s_itr        import iterated_search
