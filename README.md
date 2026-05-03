@@ -1,8 +1,26 @@
 # pyCombinatorial
 
+New to Python or prefer a graphical interface? The **pyCombinatorial Web App** lets you run your analysis in clicks, not lines of code.
+
+```python
+import pyCombinatorial
+
+# Start the web service using:
+pyCombinatorial.web_app()
+
+```
+
+<p align="center">
+  <img src="https://github.com/Valdecy/Datasets/raw/master/Data%20Science/lab_pc.png" alt="Lab" width="700"/>
+</p>
+
+* [Preview -- **pyCombinatorial Web App** -- in Google Colab](https://colab.research.google.com/drive/11o2o_BTskKsS2Ybbs7vrwAzdLTczxhaJ?usp=sharing)
+
+_This Google Colab Demo is intended for quick demos only. For the best experience, run the Web UI locally or open it directly in a full browser._
+
 ## Introduction
 
-**pyCombinatorial** is a Python-based library designed to tackle the classic Travelling Salesman Problem (TSP) through a diverse set of **Exact Algorithms**, **Heuristics**, **Metaheuristics** and **Reinforcement Learning**. It brings together both well-established and cutting-edge methodologies, offering end-users a flexible toolkit to generate high-quality solutions for TSP instances of various sizes and complexities.   
+**pyCombinatorial** is a Python-based library designed to tackle the classic Traveling Salesman Problem (TSP) through a diverse set of **Exact Algorithms**, **Heuristics**, **Metaheuristics**, and **Reinforcement Learning**. It brings together well-established and cutting-edge methodologies, offering end users a flexible toolkit to generate high-quality solutions for TSP instances of varying sizes and complexities.   
 
 Techniques: **2-opt**; **2.5-opt**; **3-opt**; **4-opt**; **5-opt**; **Or-opt**; **2-opt Stochastic**; **2.5-opt Stochastic**; **3-opt Stochastic**; **4-opt Stochastic**; **5-opt Stochastic**; **Ant Colony Optimization**; **Adaptive Large Neighborhood Search**; **Bellman-Held-Karp Exact Algorithm**; **Bitonic Tour**; **Branch & Bound**; **BRKGA** (Biased Random Key Genetic Algorithm); **Brute Force**; **Cheapest Insertion**; **Christofides Algorithm**; **Clarke & Wright**  (Savings Heuristic); **Concave Hull Algorithm**; **Convex Hull Algorithm**; **Elastic Net**; **Extremal Optimization**; **Farthest Insertion**; **FRNN** (Fixed Radius Near Neighbor); **Genetic Algorithm**; **GRASP** (Greedy Randomized Adaptive Search Procedure); **Greedy Karp-Steele Patching**; **Guided Search**; **Hopfield Network**; **Iterated Search**; **Karp-Steele Patching**;  **Large Neighborhood Search**; **Multifragment Heuristic**; **Nearest Insertion**; **Nearest Neighbour**; **Random Insertion**; **Random Tour**; **Randomized Spectral Seriation**; **RL Q-Learning**; **RL Double Q-Learning**; **RL S.A.R.S.A** (State Action Reward State Action); **Ruin & Recreate**; **Scatter Search**; **Simulated Annealing**; **SOM** (Self Organizing Maps); **Space Filling Curve** (Hilbert); **Space Filling Curve** (Morton); **Space Filling Curve** (Sierpinski); **Spectral Seriation Initializer**; **Stochastic Hill Climbing**; **Sweep**; **Tabu Search**; **Truncated Branch & Bound**; **Twice-Around the Tree Algorithm** (Double Tree Algorithm); **Variable Neighborhood Search**; **Zero Suffix Method**.
 
@@ -121,7 +139,7 @@ print('Total Distance: ', round(distance, 2))
 - Zero Suffix Method ([ Colab Demo ](https://colab.research.google.com/drive/1IXiZ8eQThElMFK-ATD1GoUyKC02LI3ij?usp=sharing)) ( [ Paper ](https://www.m-hikari.com/ijcms-2011/21-24-2011/sudhakarIJCMS21-24-2011.pdf)) 
 
 # Single Objective Optimization
-For Single Objective Optimization try [pyMetaheuristic](https://github.com/Valdecy/pyMetaheuristic)
+For Single Objective Optimization, try [pyMetaheuristic](https://github.com/Valdecy/pyMetaheuristic)
 
 # Multiobjective Optimization or Many Objectives Optimization
-For Multiobjective Optimization or Many Objectives Optimization try [pyMultiobjective](https://github.com/Valdecy/pyMultiobjective)
+For Multiobjective Optimization or Many Objectives Optimization, try [pyMultiobjective](https://github.com/Valdecy/pyMultiobjective)
