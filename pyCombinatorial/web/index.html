@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>pyCombinatorial — TSP Visualizer</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ============================ HEADER ============================ -->
+    <header class="header">
+      <div class="brand">
+        <span class="brand-mark">pyCombinatorial</span>
+        <span class="brand-tag">TSP — step-by-step visualizer</span>
+      </div>
+      <div class="header-meta">
+        <span class="hm-item"><span id="ov-count">0</span> cities</span>
+        <span id="hm-optimum-wrap" class="hm-item hidden">
+          <span class="dot">·</span>
+          <span class="hm-lbl">opt</span>
+          <span id="hm-optimum" class="hm-val">—</span>
+        </span>
+        <span id="hm-result-wrap" class="hm-item hidden">
+          <span class="dot">·</span>
+          <span class="hm-lbl">result</span>
+          <span id="hm-result" class="hm-val amber">—</span>
+          <span id="hm-gap" class="hm-gap"></span>
+        </span>
+        <span class="dot">·</span>
+        <span id="status-pill" class="status-pill idle">
+          <span class="led"></span>
+          <span id="status-text">awaiting input</span>
+        </span>
+      </div>
+    </header>
+
+    <!-- ============================ SIDEBAR =========================== -->
+    <aside class="sidebar">
+
+      <!-- 01 dataset -->
+      <section class="panel">
+        <div class="panel-title"><span>01 · Dataset</span><span class="num">input</span></div>
+
+        <div class="field">
+          <label><span>Preset</span></label>
+          <select id="preset-select" class="select"></select>
+          <div id="preset-notes" class="hint"></div>
+          <div style="margin-top:6px;">
+            <button id="btn-load-preset" class="btn btn-cyan" style="width:100%">Load preset</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label><span>Import file</span></label>
+          <input id="file-input" type="file" accept=".csv,.tsv,.txt,.tsp,.tsplib" style="display:none" />
+          <div class="btn-row">
+            <button id="btn-import" class="btn">Choose file…</button>
+            <span class="hint" style="flex:1; align-self:center; padding-left:6px;">.csv · .tsv · .tsp</span>
+          </div>
+          <div class="hint" style="margin-top:4px;">or drag a file anywhere on the window</div>
+        </div>
+
+        <div class="field">
+          <label><span>Paste coordinates</span></label>
+          <textarea
+            id="dataset-input"
+            class="textarea"
+            placeholder="x,y per line (header optional)&#10;e.g.&#10;100, 200&#10;345, 750"
+          ></textarea>
+          <div class="btn-row" style="margin-top:6px;">
+            <button id="btn-load-text" class="btn">Load text</button>
+            <button id="btn-clear" class="btn">Clear</button>
+          </div>
+        </div>
+
+        <div class="field">
+          <label><span>Random</span><span class="val" id="random-count-val">30</span></label>
+          <div style="display:flex; gap:6px;">
+            <input id="random-count" type="number" class="input" value="30" min="3" max="500"
+                   oninput="document.getElementById('random-count-val').textContent=this.value" />
+            <button id="btn-random" class="btn">Generate</button>
+          </div>
+        </div>
+
+        <div class="hint" style="padding-top:4px; border-top:1px dashed var(--rule); margin-top:8px;">
+          tip: click anywhere on the canvas to add a single city.
+        </div>
+      </section>
+
+      <!-- 02 algorithm -->
+      <section class="panel">
+        <div class="panel-title"><span>02 · Algorithm</span><span class="num">select</span></div>
+        <div class="field">
+          <label><span>Method</span></label>
+          <select id="algo-select" class="select"></select>
+          <div id="algo-description" class="hint" style="padding-top:6px;"></div>
+        </div>
+      </section>
+
+      <!-- 03 parameters -->
+      <section class="panel">
+        <div class="panel-title">
+          <span>03 · Parameters</span>
+          <button id="btn-reset-params" class="btn-link" title="Reset to defaults">reset</button>
+        </div>
+        <div id="params-box"></div>
+      </section>
+
+      <!-- 04 log -->
+      <section class="panel">
+        <div class="panel-title">
+          <span>04 · Trace</span>
+          <button id="btn-clear-log" class="btn-link" title="Clear log">clear</button>
+        </div>
+        <div id="log" class="log"></div>
+      </section>
+
+      <!-- 05 keyboard shortcuts -->
+      <section class="panel panel-quiet">
+        <div class="panel-title"><span>Keyboard</span></div>
+        <div class="kbd-grid">
+          <kbd>Space</kbd><span>step</span>
+          <kbd>P</kbd><span>play / pause</span>
+          <kbd>R</kbd><span>reset</span>
+          <kbd>E</kbd><span>run to end</span>
+        </div>
+      </section>
+
+    </aside>
+
+    <!-- ============================ CANVAS ============================ -->
+    <div class="canvas-wrap">
+      <canvas id="canvas"></canvas>
+
+      <div id="canvas-hint" class="canvas-hint">
+        load a dataset
+        <span class="sub">paste coords · pick a preset · generate · drop a .tsp file · or click the canvas</span>
+      </div>
+
+    </div>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="footer">
+      <div class="transport">
+        <button id="btn-reset" class="transport-btn" title="Reset (R)">
+          <svg viewBox="0 0 16 16"><path d="M3 2v12L13 8z" transform="rotate(180 8 8)"/><rect x="2" y="2" width="2" height="12"/></svg>
+        </button>
+        <button id="btn-step" class="transport-btn" title="Step (Space)">
+          <svg viewBox="0 0 16 16"><path d="M3 2l9 6-9 6V2z"/><rect x="13" y="2" width="2" height="12"/></svg>
+        </button>
+        <button id="btn-play" class="transport-btn play" title="Play / Pause (P)">
+          <svg viewBox="0 0 16 16"><path d="M3 2l11 6-11 6V2z"/></svg>
+        </button>
+        <button id="btn-pause" class="transport-btn" title="Pause (P)">
+          <svg viewBox="0 0 16 16"><rect x="3" y="2" width="4" height="12"/><rect x="9" y="2" width="4" height="12"/></svg>
+        </button>
+        <button id="btn-end" class="transport-btn" title="Run to end (E)">
+          <svg viewBox="0 0 16 16"><path d="M2 2l9 6-9 6V2z"/><rect x="12" y="2" width="2" height="12"/></svg>
+        </button>
+      </div>
+
+      <div class="speed-control">
+        <label>speed</label>
+        <input id="speed-range" type="range" min="0" max="500" value="60" step="5" />
+        <span class="val" id="speed-val">60ms</span>
+      </div>
+
+      <div class="footer-spacer"></div>
+
+      <div id="refine-box" class="refine-action hidden">
+        <button id="btn-save-tour" class="btn" title="Download tour as CSV">Save tour</button>
+        <button id="btn-refine" class="btn btn-cyan">Refine with 2-opt</button>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- drag-drop overlay -->
+  <div id="drop-overlay" class="drop-overlay">
+    <div>
+      <div class="drop-overlay-title">drop here</div>
+      <div class="drop-overlay-sub">.csv · .tsv · .tsp</div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
