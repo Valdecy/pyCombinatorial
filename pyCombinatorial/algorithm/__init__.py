@@ -13,6 +13,7 @@ from .eln          import elastic_net_tsp
 from .eo           import extremal_optimization
 from .frnn         import fixed_radius_nn
 from .ga           import genetic_algorithm
+from .ga_eax       import genetic_algorithm_edge_assembly_crossover
 from .grasp        import greedy_randomized_adaptive_search_procedure
 from .gksp         import greedy_karp_steele_patching
 from .hpn          import hopfield_network_tsp
