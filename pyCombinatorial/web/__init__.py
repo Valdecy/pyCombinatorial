@@ -7,7 +7,10 @@ from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Optional
 
-__all__ = ["WebVisualizerServer", "web_app"]
+__all__ = ["WebVisualizerServer", "web_app", "web_stop"]
+
+_ACTIVE_WEB_APP: Optional["WebVisualizerServer"] = None
+_ACTIVE_LOCK = threading.Lock()
 
 
 class _QuietHandler(SimpleHTTPRequestHandler):
@@ -43,7 +46,11 @@ class WebVisualizerServer:
     def shutdown(self) -> None:
         self.server.shutdown()
         self.server.server_close()
-        if self.thread is not None and self.thread.is_alive():
+        if (
+            self.thread is not None
+            and self.thread.is_alive()
+            and self.thread is not threading.current_thread()
+        ):
             self.thread.join(timeout=2.0)
 
     def __repr__(self) -> str:
@@ -53,6 +60,45 @@ class WebVisualizerServer:
 def _build_url(host: str, port: int) -> str:
     display_host = '127.0.0.1' if host in ('0.0.0.0', '::') else host
     return f'http://{display_host}:{port}/'
+
+
+def _set_active(app: Optional[WebVisualizerServer]) -> None:
+    global _ACTIVE_WEB_APP
+    with _ACTIVE_LOCK:
+        _ACTIVE_WEB_APP = app
+
+
+def _get_active() -> Optional[WebVisualizerServer]:
+    with _ACTIVE_LOCK:
+        return _ACTIVE_WEB_APP
+
+
+def web_stop(app: Optional[WebVisualizerServer] = None) -> bool:
+    """Stop a running pyCombinatorial web visualizer server.
+
+    Parameters
+    ----------
+    app : WebVisualizerServer or None, default=None
+        Specific server instance to stop. If omitted, the most recently started
+        server tracked by ``web_app`` is stopped.
+
+    Returns
+    -------
+    bool
+        True when a server instance was stopped, False when no active server was
+        available.
+    """
+
+    target = app if app is not None else _get_active()
+    if target is None:
+        return False
+
+    target.shutdown()
+    with _ACTIVE_LOCK:
+        global _ACTIVE_WEB_APP
+        if _ACTIVE_WEB_APP is target:
+            _ACTIVE_WEB_APP = None
+    return True
 
 
 
@@ -96,6 +142,7 @@ def web_app(
     actual_host, actual_port = server.server_address[:2]
     url = _build_url(str(actual_host), int(actual_port))
     app = WebVisualizerServer(server=server, thread=None, url=url, directory=web_dir)
+    _set_active(app)
 
     if open_browser:
         webbrowser.open(url)
@@ -108,6 +155,10 @@ def web_app(
             pass
         finally:
             app.shutdown()
+            with _ACTIVE_LOCK:
+                global _ACTIVE_WEB_APP
+                if _ACTIVE_WEB_APP is app:
+                    _ACTIVE_WEB_APP = None
         return app
 
     thread = threading.Thread(target=server.serve_forever, daemon=True)
