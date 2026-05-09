@@ -51,6 +51,7 @@ import * as s_tabu     from './s_tabu.js';
 import * as s_sct      from './s_sct.js';
 import * as rr         from './rr.js';
 import * as lns        from './lns.js';
+import * as lkh        from './lkh.js';
 import * as alns       from './alns.js';
 
 // Phase 2c — population, exact, neural/RL
@@ -119,6 +120,7 @@ export const ALGORITHMS = {
   s_sct:        { ...s_sct.meta,        run: s_sct.run },
   rr:           { ...rr.meta,           run: rr.run },
   lns:          { ...lns.meta,          run: lns.run },
+  lkh:          { ...lkh.meta,          run: lkh.run },
   alns:         { ...alns.meta,         run: alns.run },
   // Phase 2c — exact, population, RL/neural
   bf:           { ...bf.meta,           run: bf.run },

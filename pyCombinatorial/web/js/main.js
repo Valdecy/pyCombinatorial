@@ -100,12 +100,13 @@ function init() {
     ['opt_3', 2],
     ['opt_4', 3],
     ['opt_5', 4],
-    ['opt_or', 5],
-    ['opt_2s', 6],
-    ['opt_2_5s', 7],
-    ['opt_3s', 8],
-    ['opt_4s', 9],
-    ['opt_5s', 10],
+    ['lkh', 5],
+    ['opt_or', 6],
+    ['opt_2s', 7],
+    ['opt_2_5s', 8],
+    ['opt_3s', 9],
+    ['opt_4s', 10],
+    ['opt_5s', 11],
   ]);
 
   const algorithms = Object.entries(ALGORITHMS)

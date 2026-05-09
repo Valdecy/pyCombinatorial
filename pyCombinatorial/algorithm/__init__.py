@@ -23,6 +23,7 @@ from .ins_n        import nearest_insertion
 from .ins_r        import random_insertion
 from .ksp          import karp_steele_patching
 from .lns          import large_neighborhood_search
+from .lkh          import lin_kernighan_helsgaun
 from .mf           import  multifragment_heuristic
 from .nn           import nearest_neighbour
 from .opt_2        import local_search_2_opt
