@@ -4,6 +4,7 @@
 
 // Phase 1
 import * as nn         from './nn.js';
+import * as popm       from './popm.js';
 import * as opt_2      from './opt_2.js';
 import * as sa         from './sa.js';
 import * as bb         from './bb.js';
@@ -74,6 +75,7 @@ import * as eln           from './eln.js';
 export const ALGORITHMS = {
   // Phase 1
   nn:           { ...nn.meta,           run: nn.run },
+  popm:         { ...popm.meta,         run: popm.run },
   opt_2:        { ...opt_2.meta,        run: opt_2.run },
   sa:           { ...sa.meta,           run: sa.run },
   bb:           { ...bb.meta,           run: bb.run },

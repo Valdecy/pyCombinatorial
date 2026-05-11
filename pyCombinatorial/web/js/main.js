@@ -95,12 +95,11 @@ function init() {
   const collator = new Intl.Collator(undefined, { numeric: true, sensitivity: 'base' });
 
   const specialOrder = new Map([
-    ['opt_2', 0],
-    ['opt_2_5', 1],
-    ['opt_3', 2],
-    ['opt_4', 3],
-    ['opt_5', 4],
-    ['lkh', 5],
+    ['opt_2', 1],
+    ['opt_2_5', 2],
+    ['opt_3', 3],
+    ['opt_4', 4],
+    ['opt_5', 5],
     ['opt_or', 6],
     ['opt_2s', 7],
     ['opt_2_5s', 8],
@@ -129,8 +128,8 @@ function init() {
     ui.algoSelect.appendChild(opt);
   }
 
-  ui.algoSelect.value = 'nn';
-  switchAlgorithm('nn');
+  ui.algoSelect.value = 'opt_2';
+  switchAlgorithm('opt_2');
 
   bindEvents();
   setupStepper();
