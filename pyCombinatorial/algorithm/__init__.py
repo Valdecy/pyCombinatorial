@@ -37,6 +37,7 @@ from .opt_2_5s     import local_search_2h_opt_stochastic
 from .opt_3s       import local_search_3_opt_stochastic
 from .opt_4s       import local_search_4_opt_stochastic
 from .opt_5s       import local_search_5_opt_stochastic
+from .popm         import popmusic
 from .rl_double_ql import double_q_learning
 from .rl_ql        import q_learning
 from .rl_sarsa     import sarsa
