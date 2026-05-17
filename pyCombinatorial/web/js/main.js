@@ -154,7 +154,7 @@ function bindEvents() {
   ui.presetSelect.addEventListener('change', updatePresetNotes);
 
   ui.btnRandom.addEventListener('click', () => {
-    const n = Math.max(3, Math.min(500, parseInt(ui.randomCount.value, 10) || 30));
+    const n = Math.max(3, Math.min(1_000_000, parseInt(ui.randomCount.value, 10) || 30));
     const seed = (Date.now() & 0xffff);
     setCoords(generateRandom(n, 1000, 1000, seed), {
       name: `random ${n} (seed ${seed})`,
