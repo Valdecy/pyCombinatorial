@@ -64,6 +64,7 @@ import * as aco           from './aco.js';
 import * as ga            from './ga.js';
 import * as brkga         from './brkga.js';
 import * as ga_eax        from './ga_eax.js';
+import * as hgs           from './hgs.js';
 import * as grasp         from './grasp.js';
 import * as eo            from './eo.js';
 import * as rl_ql         from './rl_ql.js';
@@ -133,6 +134,7 @@ export const ALGORITHMS = {
   ga:           { ...ga.meta,           run: ga.run },
   brkga:        { ...brkga.meta,        run: brkga.run },
   ga_eax:       { ...ga_eax.meta,       run: ga_eax.run },
+  hgs:          { ...hgs.meta,          run: hgs.run },
   grasp:        { ...grasp.meta,        run: grasp.run },
   eo:           { ...eo.meta,           run: eo.run },
   rl_ql:        { ...rl_ql.meta,        run: rl_ql.run },
