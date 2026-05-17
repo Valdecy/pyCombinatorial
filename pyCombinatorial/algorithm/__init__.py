@@ -16,6 +16,7 @@ from .ga           import genetic_algorithm
 from .ga_eax       import genetic_algorithm_edge_assembly_crossover
 from .grasp        import greedy_randomized_adaptive_search_procedure
 from .gksp         import greedy_karp_steele_patching
+from .hgs          import hybrid_genetic_search
 from .hpn          import hopfield_network_tsp
 from .ins_c        import cheapest_insertion
 from .ins_f        import farthest_insertion
